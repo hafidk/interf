@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <html>
 <title>Croat-Change</title>
@@ -28,7 +27,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="{% static 'home/imatges/fotologo.png' %}" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="imatges/fotologo.png" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Croat-Change</a>
     <a href="#" class="w3-bar-item w3-right w3-button"><i class="fa fa-search"></i></a>
     <input class="w3-right" type="text" name="firstname" maxlength="10">
@@ -74,74 +73,38 @@ function myFunction(id) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
+
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      </p>
-      <h1 class="w3-text-teal">Què és Croat-Change?</h1>
-      <p>És una plataforma desenvolupada amb l'objectiu de crear un nou espai per tal de poder utilitzar la moneda CROAT, ja sigui venent/comprant directament la moneda o venent/comprant productes de segona mà mitjançant CROAT.</p>
-
-<img class="w3.center" src="{% static 'home/imatges/fotoportada.jpg' %}" class="w3-round-xlarge" alt="Norway" style="width:20%">
-
+      <h1 class="w3-text-teal">Afegir anunci:</h1>
+      		  
+    </ul>
     </div>
-    <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">------------- Informació de l'Usuari quan esta registrat ---------</p>
+      <form action="compra_venta.html">
+      <table id="myTable">
+        <tr>
+            <th>Nº CROATs</th>
+            <th>Preu total</th>
+            <th>Accepta monedes:</th>
+        </tr>
+	  <td><input type="text" name="Ncroats"></td>
+	  <td><input type="text" name="Ptotal"></td>
+	  <td><input type="text" name="mon-accept"></td>
+	  <td><input type="submit" value="Submit" onclick="myFunction()"></td>
+	</tr>
 
+    </table>
+      </form> 
 
-<div class="w3-container w3-border">
-  <h2>Llista chats:</h2>
-  <ul class="w3-ul w3-card-4">
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">I Haff da pawar</span><br>
-        <span>intent de Web Designer</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">El oi</span><br>
-        <span>el seu Support</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">Wi ll</span><br>
-        <span>content</span>
-      </div>
-    </li>
-  </ul>
-<p></p>
-</div>
-
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">
-
-	<div class="carrusel-container">
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota1.png' %}" height="150" width="230" >
-	  </div>
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota2.png' %}"  height="150" width="230" >
-	  </div>
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota3.jpeg' %}" height="150" width="230">
-	  </div>
-	</div>
-	
-
-
-
-
-      </p>
-    </div>
   </div>
-
+<script>
+function myFunction() {
+    alert("Enhorabona! Anunci afegit a la taula");
+}
+</script>
  
   <!-- Pagination 
   <div class="w3-center w3-padding-32">
@@ -149,7 +112,7 @@ function myFunction(id) {
       <a class="w3-button w3-black" href="#">1</a>
       <a class="w3-button w3-hover-black" href="#">2</a>
       <a class="w3-button w3-hover-black" href="#">3</a>
-1      <a class="w3-button w3-hover-black" href="#">4</a>
+      <a class="w3-button w3-hover-black" href="#">4</a>
       <a class="w3-button w3-hover-black" href="#">5</a>
       <a class="w3-button w3-hover-black" href="#">»</a>
     </div>
@@ -168,24 +131,6 @@ function myFunction(id) {
 
 <!-- END MAIN -->
 </div>
-
-
-<script>
-  var slideIndex = 0;
-  showSlides();
-  function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("carrusel-element");
-  for (i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-		}
-		slideIndex++;
-		if (slideIndex> slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 2000);
-    }
-</script>
-
 
 <script>
 // Get the Sidebar

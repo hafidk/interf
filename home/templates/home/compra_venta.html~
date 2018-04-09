@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-{% load static %}
-
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-
 <html>
 <title>Croat-Change</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'home/css/w3.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/w3-theme-black.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/roboto.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-<link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-black.css">
+<link rel="stylesheet" href="css/roboto.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="w3.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -28,7 +25,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 <div class="w3-top">
   <div class="w3-bar w3-theme w3-top w3-large">
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="{% static 'home/imatges/fotologo.png' %}" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="imatges/fotologo.png" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Croat-Change</a>
     <a href="#" class="w3-bar-item w3-right w3-button"><i class="fa fa-search"></i></a>
     <input class="w3-right" type="text" name="firstname" maxlength="10">
@@ -54,7 +51,6 @@ Compra/Venda</a>
   </ul>  
 </div>
 
-</div>
 <script>
 function myFunction(id) {
     var x = document.getElementById(id);
@@ -74,20 +70,65 @@ function myFunction(id) {
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
+
 <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 <div class="w3-main" style="margin-left:250px">
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      </p>
-      <h1 class="w3-text-teal">Què és Croat-Change?</h1>
-      <p>És una plataforma desenvolupada amb l'objectiu de crear un nou espai per tal de poder utilitzar la moneda CROAT, ja sigui venent/comprant directament la moneda o venent/comprant productes de segona mà mitjançant CROAT.</p>
+      <h1 class="w3-text-teal">Intercanvi de monedes</h1>
 
-<img class="w3.center" src="{% static 'home/imatges/fotoportada.jpg' %}" class="w3-round-xlarge" alt="Norway" style="width:20%">
 
+      <main>
+          
+      <table id="myTable">
+        <tr>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Nº CROATs</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Preu total</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">€/CROAT</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Accepta monedes:</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Data publicacio</th>
+            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Usuari</th>
+        </tr>
+	    <tr class="item">
+	  <td>54</td>
+	  <td>25</td>
+	  <td>0.3</td>
+	  <td>1</td>
+	  <td><span>1996 - 12 - 25</span><td>
+	  <td>pEPITO</td>
+	</tr>
+	<tr class="item">
+	  <td>43</td>
+	  <td>32</td>
+	  <td>0.2</td>
+	  <td>bITCOIN</td>
+	  <td><span>1996 - 04 - 05</span><td>
+	  <td>HAFMAN</td>
+	</tr>
+    <tr class="item">
+	  <td>88</td>
+	  <td>21</td>
+	  <td>0.3</td>
+	  <td>eth</td>
+	  <td><span>1966 - 06 - 03</span><td>
+	  <td>loio</td>
+	</tr>
+    <tr class="item">
+	  <td>10</td>
+	  <td>12</td>
+	  <td>0.122</td>
+	  <td>eth</td>
+	  <td><span>2001 - 01 - 03</span><td>
+	  <td>loio</td>
+	</tr>
+    </table>
+
+      
     </div>
     <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">------------- Informació de l'Usuari quan esta registrat ---------</p>
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center"><a href="add_fila_taula.html">Afegir proposta d'intercanvi</a></p>
+
 
 
 <div class="w3-container w3-border">
@@ -120,41 +161,12 @@ function myFunction(id) {
 <p></p>
 </div>
 
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">
-
-	<div class="carrusel-container">
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota1.png' %}" height="150" width="230" >
-	  </div>
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota2.png' %}"  height="150" width="230" >
-	  </div>
-	  <div class="carrusel-element">
-	    <img src="{% static 'home/imatges/imatge_rota3.jpeg' %}" height="150" width="230">
-	  </div>
-	</div>
-	
 
 
 
 
-      </p>
     </div>
   </div>
-
- 
-  <!-- Pagination 
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a class="w3-button w3-black" href="#">1</a>
-      <a class="w3-button w3-hover-black" href="#">2</a>
-      <a class="w3-button w3-hover-black" href="#">3</a>
-1      <a class="w3-button w3-hover-black" href="#">4</a>
-      <a class="w3-button w3-hover-black" href="#">5</a>
-      <a class="w3-button w3-hover-black" href="#">»</a>
-    </div>
-  </div>
-	-->
 
   <footer id="myFooter">
     <div class="w3-container w3-theme-l3 w3-padding-32">
@@ -168,24 +180,6 @@ function myFunction(id) {
 
 <!-- END MAIN -->
 </div>
-
-
-<script>
-  var slideIndex = 0;
-  showSlides();
-  function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("carrusel-element");
-  for (i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-		}
-		slideIndex++;
-		if (slideIndex> slides.length) {slideIndex = 1}
-    slides[slideIndex-1].style.display = "block";
-    setTimeout(showSlides, 2000);
-    }
-</script>
-
 
 <script>
 // Get the Sidebar
@@ -214,4 +208,11 @@ function w3_close() {
 
 </body>
 </html>
+
+
+
+
+
+
+
 
