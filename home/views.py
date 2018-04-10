@@ -5,9 +5,13 @@ from django.shortcuts import render
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import RegForm
+from .forms import LogForm
+from .models import Usuari
+
 # Create your views here.
 
-def index(request):
+def index(request):    
     noticies=["mor django atroplleat"]
     context={'news':noticies}
     return render(request,"home/index.html",context)
@@ -47,11 +51,34 @@ def noticies(request):
     return render(request,"home/noticies.html",context)
 
 def register(request):
-    noticies=["mor django"]
-    context={'news':noticies}
+
+    form = RegForm(request.POST or None)
+    if form.is_valid():
+        form_data = form.cleaned_data
+
+        usr=form_data.get("nom")
+        pss=form_data.get("pwd")
+        correu=form_data.get("email")
+
+        obj= Usuari.objects.create(email=correu,nom=usr,pwd=pss)
+    context = {
+        "formulari":form,
+        }
+    
     return render(request,"home/register.html",context)
 
 def singin(request):
+
+    form = LogForm(request.GET or None)
+    if form.is_valid():
+        form_data = form.cleaned_data
+
+        usr=form_data.get("nom")
+        pss=form_data.get("pwd")
+
+        resultats= Usuari.objects.filter(nom=form_data['nom'],pwd=form_data['pwd']).count()
+
+        
     noticies=["mor django"]
-    context={'news':noticies}
+    context={'formulari':form}
     return render(request,"home/singin.html",context)

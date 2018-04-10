@@ -6,6 +6,7 @@ from django.db import models
 class Usuari(models.Model):
     nom=models.CharField(max_length=30)
     pwd=models.CharField(max_length=30)
+    email=models.CharField(max_length=30)
 
 
 class Anunci(models.Model):

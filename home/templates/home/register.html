@@ -80,7 +80,18 @@ function myFunction(id) {
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">Heading</h1>
       		  
-    </ul>
+</ul>
+
+
+<form method="POST" action="">{% csrf_token %}
+  {{formulari.as_p}}
+  <input type="submit" value="Registra'm" />
+
+
+  
+</form>
+
+
     <form action="submit">
         <br>
         Nom d'Usuari:<br>
