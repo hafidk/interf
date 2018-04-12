@@ -15,3 +15,10 @@ class Anunci(models.Model):
     autor=models.ForeignKey(Usuari, on_delete=models.CASCADE)
     date=models.DateField()
     num_stars=models.IntegerField()
+
+class Intercanvi(models.Model):
+    autor=models.CharField(Usuari, on_delete=models.CASCADE)
+    date=models.DateField()
+    Ncroats=models.IntegerField(max_length=50)
+    PreuTotal=models.IntegerField(max_length=50)
+    AcceptaMonedas=models.CharField(max_length=40)
