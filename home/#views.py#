@@ -81,6 +81,7 @@ def singin(request):
 
     form = LogForm(request.GET or None)
     print("does")
+    form_data = form.cleaned_data
     
     usr=form_data.get("nom")
     pss=form_data.get("pwd")
