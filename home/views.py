@@ -21,7 +21,7 @@ def index(request):
     return render(request,"home/index.html",context)
 
 
-@login_required()
+@login_required(redirect)
 def chat(request):
     noticies=["mor django"]
     context={'news':noticies}

@@ -30,9 +30,15 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="{% static 'home/imatges/fotologo.png' %}" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Croat-Change</a>
-    <a href="#" class="w3-bar-item w3-right w3-button"><i class="fa fa-search"></i></a>
+
+
+
+    <a href="logout" class="w3-bar-item w3-right w3-button"> Logout</a>
+
+
+
     <input class="w3-right" type="text" name="firstname" maxlength="10">
-    <a href="singin" class="w3-bar-item w3-right w3-hide-small w3-hover-white">Sing In</a>
+    <a href="signin" class="w3-bar-item w3-right w3-hide-small w3-hover-white">Sign In</a>
     <a href="register" class="w3-bar-item w3-right w3-hide-small w3-hover-white">Register</a>
   </div>
 </div>
@@ -87,7 +93,10 @@ function myFunction(id) {
 
     </div>
     <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">------------- Informació de l'Usuari quan esta registrat ---------</p>
+
+
+
+      <p class="w3-border w3-padding-large w3-padding-32 w3-center"> Benvingut {{request.user.username}} !</p>
 
 
 <div class="w3-container w3-border">
