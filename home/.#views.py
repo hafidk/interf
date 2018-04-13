@@ -1,1 +1,0 @@
-usuari@portatil.4626:1523108419

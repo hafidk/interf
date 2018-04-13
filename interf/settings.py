@@ -132,5 +132,7 @@ MEDIA_URL='/media/'
 
 STATICFILES_DIRS=(os.path.join(PROJECT_DIR,'staticfiles'),)
 
+#LOGIN_URL = 'home.views.signin'
 
-LOGIN_REDIRECT_URL='/'
+
+

@@ -12,8 +12,10 @@ urlpatterns = [
     path('mapa_lloc',views.mapa_lloc,name="mapa_lloc"),
     path('mercat_croat',views.mercat_croat,name="mercat_croat"),
     path('noticies',views.noticies,name="noticies"),
-    path('register',views.register,name="register"),
-    path('singin',views.singin,name="singin"),
+    path('register/',views.register,name="register"),
+    path('signin/',views.signin,name="signin"),
+    #path('login', views.login , name="singin"),
+    path('logout',views.logout_v,name="logout"),
     ]
 
 

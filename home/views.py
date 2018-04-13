@@ -1,17 +1,17 @@
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
-from django import forms
-
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext
-from .forms import RegForm
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.views.generic import View
+from .forms import UserForm
 from .forms import LogForm
-from .models import Usuari
+
+
+
 
 # Create your views here.
 
@@ -20,6 +20,8 @@ def index(request):
     context={'news':noticies}
     return render(request,"home/index.html",context)
 
+
+@login_required()
 def chat(request):
     noticies=["mor django"]
     context={'news':noticies}
@@ -44,6 +46,7 @@ def mapa_lloc(request):
     noticies=["mor django"]
     context={'news':noticies}
     return render(request,"home/mapa_lloc.html",context)
+
 def mercat_croat(request):
     noticies=["mor django"]
     context={'news':noticies}
@@ -56,49 +59,48 @@ def noticies(request):
 
 def register(request):
 
-    form = RegForm(request.POST or None)
+    if request.user.is_authenticated:#si el usuari esta online, a index te vas
+        return redirect('index')
+    
+    template="home/register.html"
+    form = UserForm(request.POST)
+
     if form.is_valid():
-        form_data = form.cleaned_data
+        user = form.save(commit=False)#guardem local no db
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user.set_password(password)
+        user.save()
 
-        usr=form_data.get("nom")
-        pss=form_data.get("pwd")
-        correu=form_data.get("email")
-        if not( Usuari.objects.filter(email=correu).exists() or Usuari.objects.filter(nom=usr).exists() ):
-            obj = Usuari.objects.create(email=correu,nom=usr,pwd=pss)
-            user = authenticate(usuari = usr, password = pss)
-            #login(request,obj)
-            #return HttpResponseRedirect('/')
-        else:
-            print ("jaja no")
-        
-    context = {
-        "formulari":form,
-        }
-
-    return render(request,"home/register.html",context)
-
-def singin(request):
-
-    form = LogForm(request.GET or None)
-    print("does")
-    
-    usr=form_data.get("nom")
-    pss=form_data.get("pwd")
-    
-    resultats= Usuari.objects.filter(nom=form_data['nom'],pwd=form_data['pwd']).count()#miro si tenim el usuari
-
-    print(resultats)
-    print(usr)
-    print(pss)
-    
-    if resultats > 0:
-        pass
-    else:
-        return render(request,"home/singin.html",context)
+        user = authenticate(username=username,password=password)
+        if user is not None:
+            if user.is_active:
+                login(request,user)
+                return redirect('index')
             
-        
+    return render(request,template,{'form':form})
+
+
+def signin(request):
+    template="home/login.html"
+    form = LogForm(request.POST)
+
+    if request.user.is_authenticated:#si el usuari esta online, a index te vas
+        return redirect('index')
     
-        
-    noticies=["mor django"]
-    context={'formulari':form}
-    return render(request,"home/singin.html",context)
+    if form.is_valid():
+        print(form)
+        username = form.cleaned_data['nom']
+        password = form.cleaned_data['pwd']
+        user = authenticate(username=username,password=password)
+        print(user)
+        if user is not None:
+            if user.is_active:
+                login(request,user)
+                return redirect('index')
+            
+    return render(request,template,{'form':form})
+
+def logout_v(request):
+    logout(request)
+    return redirect('index')
