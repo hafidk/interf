@@ -9,6 +9,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
 from .forms import UserForm
 from .forms import LogForm
+from .forms import AnunciForm
+from .models import *
+import datetime
 
 
 
@@ -21,8 +24,11 @@ def index(request):
     return render(request,"home/index.html",context)
 
 
-@login_required(redirect)
 def chat(request):
+    #aviso, aixo es un parxe de merda, pero rula
+    if not (request.user.is_authenticated):
+        return redirect('index')
+    #fi del parxe de merda del haf
     noticies=["mor django"]
     context={'news':noticies}
     return render(request,"home/chat.html",context)
@@ -88,8 +94,9 @@ def signin(request):
     if request.user.is_authenticated:#si el usuari esta online, a index te vas
         return redirect('index')
     
+    print("fins aqui")
     if form.is_valid():
-        print(form)
+        print("it is")
         username = form.cleaned_data['nom']
         password = form.cleaned_data['pwd']
         user = authenticate(username=username,password=password)
@@ -97,10 +104,40 @@ def signin(request):
         if user is not None:
             if user.is_active:
                 login(request,user)
-                return redirect('index')
+                return redirect('home')
             
     return render(request,template,{'form':form})
 
 def logout_v(request):
     logout(request)
     return redirect('index')
+
+
+
+def prova(request):
+
+    random=User(username="Marta")
+    print(random)
+    loadout=[1,2,4,3,2,5,3]
+    context={'anuncis':loadout}
+    return render(request,"home/prova.html",context)
+
+
+def vista2(request):
+    llista="hola"
+
+def afegir_anunci(request):
+    noticies=["mor django"]
+    context={'news':noticies}
+
+    form = AnunciForm(request.POST)
+    if not(request.user.is_authenticated):
+        return redirect('index')
+    
+    if form.is_valid():
+        titol = form.cleaned_data['titol']
+        descripcio = form.cleaned_data['descripcio']
+        nou_anunci = Anunci(titol=titol,descripcio=descripcio,autor= request.user.username, date= datetime.datetime.now(), num_stars=0)
+    
+
+    return render(request,"home/afegir_anunci.html",context)

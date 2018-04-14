@@ -19,8 +19,11 @@ class LogForm(forms.ModelForm):
 
 
 
-class RegForm(forms.Form):
-        nom = forms.CharField(max_length=30)
-        email = forms.EmailField()
-        pwd = forms.CharField(max_length=30)
+class AnunciForm(forms.ModelForm):
+        titol = forms.CharField(max_length=30)
+        descripcio = forms.CharField(max_length=300)
+        
+
+
+
 

@@ -84,91 +84,14 @@ function myFunction(id) {
       <main>
 
 
-          
-      <table id="myTable">
-        <tr>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Nº CROATs</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">Preu total</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">€/CROAT</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Accepta monedes:</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Data publicacio</th>
-            <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Usuari</th>
-        </tr>
-
-{for <tr class="item">
-	  <td>54</td>
-	  <td>25</td>
-	  <td>0.3</td>
-	  <td>1</td>
-	  <td><span>1996 - 12 - 25</span><td>
-	  <td>pEPITO</td>
-	</tr>
-	<tr class="item">
-	  <td>43</td>
-	  <td>32</td>
-	  <td>0.2</td>
-	  <td>bITCOIN</td>
-	  <td><span>1996 - 04 - 05</span><td>
-	  <td>HAFMAN</td>
-	</tr>
-    <tr class="item">
-	  <td>88</td>
-	  <td>21</td>
-	  <td>0.3</td>
-	  <td>eth</td>
-	  <td><span>1966 - 06 - 03</span><td>
-	  <td>loio</td>
-	</tr>
-    <tr class="item">
-	  <td>10</td>
-	  <td>12</td>
-	  <td>0.122</td>
-	  <td>eth</td>
-	  <td><span>2001 - 01 - 03</span><td>
-	  <td>loio</td>
-	</tr>
-    </table>
+      <form method="POST" action=""> {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" value="Afegir anunci" />
 
       
     </div>
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center"><a href="add_fila_taula">Afegir proposta d'intercanvi</a></p>
-
-
-
-<div class="w3-container w3-border">
-  <h2>Llista chats:</h2>
-  <ul class="w3-ul w3-card-4">
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">I Haff da pawar</span><br>
-        <span>intent de Web Designer</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">El oi</span><br>
-        <span>el seu Support</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">Wi ll</span><br>
-        <span>content</span>
-      </div>
-    </li>
-  </ul>
-<p></p>
-</div>
-
-
-
-
 
     </div>
   </div>

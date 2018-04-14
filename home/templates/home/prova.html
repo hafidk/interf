@@ -1,0 +1,20 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+{% if anuncis %}
+<ul>
+
+{% for element in anuncis %}
+	<li> {{ element}} </li>
+{% endfor %}
+</ul>
+
+{% else %}
+	nope
+{% endif %}
+
+</body>

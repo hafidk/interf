@@ -16,6 +16,8 @@ urlpatterns = [
     path('signin/',views.signin,name="signin"),
     #path('login', views.login , name="singin"),
     path('logout',views.logout_v,name="logout"),
+    path('prova',views.prova,name="prova"),#just for try
+    path('afegir_anunci',views.afegir_anunci,name="afegir_anunci"),
     ]
 
 
