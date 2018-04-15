@@ -135,3 +135,13 @@ def afegir_anunci(request):
 
         
     return render(request,"home/afegir_anunci.html",{"form":form})
+
+#de moment descontinuat perque no se com enfocarlo
+def missatges(request):
+    if not(request.user.is_authenticated):
+        return redirect('index')
+    
+    llista_tots_missatges=Missatge.objects.all()
+    print (llista_tots_missatges)
+    context={'anuncis':"nada"}
+    return render(request,"home/missatges.html",context)

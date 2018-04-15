@@ -11,6 +11,12 @@ class Anunci(models.Model):
     date=models.DateField()
     num_stars=models.IntegerField()
 
+class Missatge(models.Model):
+    sender = models.ForeignKey(User, related_name="sender", on_delete=models.CASCADE)
+    reciever = models.ForeignKey(User, related_name="reciever", on_delete=models.CASCADE)
+    msg_content = models.CharField(max_length=600)
+    created_at = models.DateField()
+
 """
 class Intercanvi(models.Model):
     autor=models.CharField(Usuari, on_delete=models.CASCADE)
