@@ -92,8 +92,7 @@ def signin(request):
 
     if request.user.is_authenticated:#si el usuari esta online, a index te vas
         return redirect('index')
-    
-    print("fins aqui")
+    print(form)
     if form.is_valid():
         
         print("it is")
@@ -114,7 +113,6 @@ def logout_v(request):
     return redirect('index')
 
 
-
 def prova(request):
 
     random=User(username="Marta")
@@ -123,22 +121,19 @@ def prova(request):
     context={'anuncis':loadout}
     return render(request,"home/prova.html",context)
 
-
-def vista2(request):
-    llista="hola"
-
 def afegir_anunci(request):
     noticies=["mor django"]
-    context={'news':noticies}
-
-    form = AnunciForm(request.POST)
+    form = AnunciForm(request.POST or None)
+    print(form)
     if not(request.user.is_authenticated):
         return redirect('index')
     
     if form.is_valid():
         titol = form.cleaned_data['titol']
         descripcio = form.cleaned_data['descripcio']
-        nou_anunci = Anunci(titol=titol,descripcio=descripcio,autor= request.user.username, date= datetime.datetime.now(), num_stars=0)
-    
+        nou_anunci = Anunci(titol=titol,descripcio=descripcio,autor= request.user, date= datetime.datetime.now(), num_stars=0)
+        nou_anunci.save()
+        return redirect('/home/')
 
-    return render(request,"home/afegir_anunci.html",context)
+        
+    return render(request,"home/afegir_anunci.html",{"form":form})
