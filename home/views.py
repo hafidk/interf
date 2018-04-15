@@ -88,24 +88,25 @@ def register(request):
 
 
 def signin(request):
-    template="home/login.html"
-    form = LogForm(request.POST)
+    form = LogForm(request.POST or None)
 
     if request.user.is_authenticated:#si el usuari esta online, a index te vas
         return redirect('index')
     
     print("fins aqui")
     if form.is_valid():
+        
         print("it is")
-        username = form.cleaned_data['nom']
-        password = form.cleaned_data['pwd']
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
         user = authenticate(username=username,password=password)
         print(user)
         if user is not None:
             if user.is_active:
                 login(request,user)
-                return redirect('home')
-            
+                return redirect('/home/')#fucking finally
+
+    template="home/login.html"    
     return render(request,template,{'form':form})
 
 def logout_v(request):
