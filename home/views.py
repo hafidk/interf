@@ -54,8 +54,8 @@ def mapa_lloc(request):
     return render(request,"home/mapa_lloc.html",context)
 
 def mercat_croat(request):
-    noticies=["mor django"]
-    context={'news':noticies}
+    llista_tots_anuncis=Anunci.objects.all().order_by("-date")
+    context={'anuncis':llista_tots_anuncis}
     return render(request,"home/mercat_croat.html",context)
 
 def noticies(request):
@@ -115,10 +115,8 @@ def logout_v(request):
 
 def prova(request):
 
-    random=User(username="Marta")
-    print(random)
-    loadout=[1,2,4,3,2,5,3]
-    context={'anuncis':loadout}
+    llista_tots_anuncis=Anunci.objects.all().order_by("-date")
+    context={'anuncis':llista_tots_anuncis}
     return render(request,"home/prova.html",context)
 
 def afegir_anunci(request):

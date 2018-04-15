@@ -5,16 +5,28 @@
 
 
 <body>
+
+
+
+
+
+
+
 {% if anuncis %}
 <ul>
 
 {% for element in anuncis %}
-	<li> {{ element}} </li>
+	<li> {{ element.titol}} {{element.descripcio}} {{element.autor}} Publicat el: {{element.date}} {{element.num_stars}} </li>
 {% endfor %}
 </ul>
 
 {% else %}
 	nope
 {% endif %}
+
+
+
+
+
 
 </body>
