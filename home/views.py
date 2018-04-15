@@ -141,7 +141,7 @@ def missatges(request):
     if not(request.user.is_authenticated):
         return redirect('index')
     
-    llista_tots_missatges=Missatge.objects.all()
+    llista_tots_missatges=Missatge.objects.filter(reciever=request.user)
     print (llista_tots_missatges)
     context={'anuncis':"nada"}
     return render(request,"home/missatges.html",context)
