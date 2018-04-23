@@ -124,7 +124,7 @@ def afegir_anunci(request):
     form = AnunciForm(request.POST or None)
     print(form)
     if not(request.user.is_authenticated):
-        return redirect('index')
+        return redirect('signin')
     
     if form.is_valid():
         titol = form.cleaned_data['titol']
