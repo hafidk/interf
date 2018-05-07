@@ -1,32 +1,13 @@
-<html>
-<head>
-
-</head>
-
-
-<body>
-
-
-
-
-
-
-
-{% if anuncis %}
-<ul>
-
-{% for element in anuncis %}
-	<li> {{ element.titol}} {{element.descripcio}} {{element.autor}} Publicat el: {{element.date}} {{element.num_stars}} </li>
-{% endfor %}
-</ul>
-
-{% else %}
-	nope
-{% endif %}
-
-
-
-
-
-
-</body>
+<!-- header -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme w3-top w3-large">
+    <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-theme-l1" style="width: 10%" ><img src="imatges/fotologo.png" class="w3-round-xlarge" alt="Norway" style="width:24%"></a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Croat-Change</a>
+    <a href="#" class="w3-bar-item w3-right w3-button"><i class="fa fa-search"></i></a>
+    <input class="w3-right" type="text" name="firstname" maxlength="10">
+    <a href="logout" class="w3-bar-item w3-right w3-button"> Logout</a>
+    <a href="signin" class="w3-bar-item w3-right w3-hide-small w3-hover-white">Sign In</a>
+    <a href="register" class="w3-bar-item w3-right w3-hide-small w3-hover-white">Register</a>
+  </div>
+</div>
