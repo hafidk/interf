@@ -20,5 +20,8 @@ class AnunciForm(forms.Form):
         titol = forms.CharField(max_length=30)
         descripcio = forms.CharField(max_length=300,widget=forms.Textarea)
         
-
-
+class MonedaForm(forms.Form):
+        ncroats = forms.IntegerField()
+        ptotal = forms.IntegerField()
+        aceptamon = forms.CharField(max_length=30)
+        

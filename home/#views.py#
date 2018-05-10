@@ -46,7 +46,7 @@ def comercos(request):
 
 def compra_venta(request):
     llista_tots_monedes=Moneda.objects.all().order_by("-date")
-    context={'monedes':llista_tots_monedes}
+    context={'monedes':llista_tots_monedes, 'preu':llista_tots_monedes.}
     return render(request,"home/compra_venta.html",context)
 
 def mapa_lloc(request):

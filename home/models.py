@@ -17,6 +17,14 @@ class Missatge(models.Model):
     msg_content = models.CharField(max_length=600)
     created_at = models.DateField()
 
+class Moneda(models.Model):
+    ncroats=models.IntegerField()
+    ptotal=models.IntegerField()
+    aceptamon=models.CharField(max_length=5)
+    autor=models.ForeignKey(User, on_delete=models.CASCADE)
+    date=models.DateField()
+    
+
 """
 class Intercanvi(models.Model):
     autor=models.CharField(Usuari, on_delete=models.CASCADE)

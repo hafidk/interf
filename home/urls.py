@@ -18,6 +18,7 @@ urlpatterns = [
     path('prova',views.prova,name="prova"),#per debug
     path('afegir_anunci',views.afegir_anunci,name="afegir_anunci"),
     path('missatges',views.missatges,name="missatges"),
+    path('afegir_moneda',views.afegir_moneda ,name="afegir_moneda"),
     ]
 
 

@@ -30,38 +30,18 @@
             <th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Usuari</th>
         </tr>
 
+
+{% for element in monedes %}
  <tr class="item">
-	  <td>54</td>
-	  <td>25</td>
-	  <td>0.3</td>
-	  <td>1</td>
-	  <td><span>1996 - 12 - 25</span><td>
-	  <td>pEPITO</td>
+	  <td>{{element.ncroats}}</td>
+	  <td>{{element.ptotal}}</td>
+	  <td> {% {{element.ptotal}} / {{element.ncroats}} %}  </td>
+	  <td>{{element.aceptamon}}</td>
+	  <td><span>{{element.date}}</span><td>
+	  <td>{{element.autor}}</td>
 	</tr>
-	<tr class="item">
-	  <td>43</td>
-	  <td>32</td>
-	  <td>0.2</td>
-	  <td>bITCOIN</td>
-	  <td><span>1996 - 04 - 05</span><td>
-	  <td>HAFMAN</td>
-	</tr>
-    <tr class="item">
-	  <td>88</td>
-	  <td>21</td>
-	  <td>0.3</td>
-	  <td>eth</td>
-	  <td><span>1966 - 06 - 03</span><td>
-	  <td>loio</td>
-	</tr>
-    <tr class="item">
-	  <td>10</td>
-	  <td>12</td>
-	  <td>0.122</td>
-	  <td>eth</td>
-	  <td><span>2001 - 01 - 03</span><td>
-	  <td>loio</td>
-	</tr>
+{% endfor %}
+
     </table>
     </div>
 	
