@@ -4,26 +4,10 @@
 
 <html>
 <title>Croat-Change</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'home/css/w3.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/w3-theme-black.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/roboto.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-<link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' %}">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 43px;
-  bottom: 0;
-  height: inherit;
-}
-</style>
+{% include "home/style.html" %}
 <body>
 
-{% include "home/prova.html" %}
+{% include "home/header.html" %}
 {% include "home/sidebar.html" %}
 
 
@@ -79,12 +63,11 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 	  <td>loio</td>
 	</tr>
     </table>
-
-      
     </div>
+	
     <div class="w3-third w3-container">
       <p class="w3-border w3-padding-large w3-padding-32 w3-center"><a href="afegir_anunci">Afegir anunci</a></p>
-</div>
+    </div>
 
 
 

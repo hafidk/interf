@@ -1,30 +1,14 @@
 <!DOCTYPE html>
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 <html>
 <title>Croat-Change</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'home/css/w3.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/w3-theme-black.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/roboto.css' %}">
-<link rel="stylesheet" href="{% static 'home/css/font-awesome.min.css' %}">
-<style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
-.w3-sidebar {
-  z-index: 3;
-  width: 250px;
-  top: 43px;
-  bottom: 0;
-  height: inherit;
-}
-</style>
+{% include "home/style.html" %}
 <body>
 
 
-{% include "home/prova.html" %}
+{% include "home/header.html" %}
 {% include "home/sidebar.html" %}
 
   
@@ -46,36 +30,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
       <p class="w3-border w3-padding-large w3-padding-32 w3-center"> Benvingut {{request.user.username}} !</p>
 
-
-<div class="w3-container w3-border">
-  <h2>Llista chats:</h2>
-  <ul class="w3-ul w3-card-4">
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">I Haff da pawar</span><br>
-        <span>intent de Web Designer</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">El oi</span><br>
-        <span>el seu Support</span>
-      </div>
-    </li>
-
-    <li class="w3-bar">
-      <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-      <div class="w3-bar-item">
-        <span class="w3-large">Wi ll</span><br>
-        <span>content</span>
-      </div>
-    </li>
-  </ul>
-<p></p>
-</div>
 
       <p class="w3-border w3-padding-large w3-padding-64 w3-center">
 
